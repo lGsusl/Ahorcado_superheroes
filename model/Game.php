@@ -43,6 +43,17 @@ require_once("Player.php");
             $this->usedChars = $usedChars;
         }
 
+        private function chargeSuperHeroes(): bool {
+            if (!$json = @file_get_contents(SUPERHEROES_FILE)) {
+                return false;
+            } else {
+                $json_data = json_decode($json, true);
+                $this->listSuperHeroes = $json_data;
+                print_r($json_data);
+            }
+            return true;
+        }
+
     }
 
 ?>
