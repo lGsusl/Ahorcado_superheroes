@@ -1,11 +1,11 @@
 <?php
 
-    require_once('/xampp/htdocs/Ahorcado_superheroes/util/Constant.php');
+    require_once('/xampp/htdocs/Ahorcado_superheroes/utils/Constants.php');
 
     class Player {
 
         private string $name;
-        private int $maxFailedIntents = MAX_FAILED_INTENTS;
+        private int $lives = LIVES;
 
         public function __construct() {
             $arguments = func_get_args();
@@ -28,18 +28,17 @@
             $this->name = $name;
         }
 
-        public function getMaxFailedIntents(): ?int {
-            return $this->maxFailedIntents;
+        public function getLives(): ?int {
+            return $this->lives;
         }
 
-        public function setMaxFailedIntents(int $maxFailedIntents): void {
-            $this->maxFailedIntents = $maxFailedIntents;
+        public function setLives(int $lives): void {
+            $this->lives = $lives;
         }
 
-        public function decreaseMaxFailedIntents(): void {
-
-            if ($this->maxFailedIntents > 0)
-                $this->maxFailedIntents--;
+        public function decreaseLives(): void {
+            if ($this->lives > 0)
+                $this->lives--;
         }
 
     }
